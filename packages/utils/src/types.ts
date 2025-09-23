@@ -1,3 +1,4 @@
+import { JSONSchema7 } from 'json-schema';
 import type {
   ButtonHTMLAttributes,
   ChangeEvent,
@@ -8,7 +9,6 @@ import type {
   ReactNode,
   StyleHTMLAttributes,
 } from 'react';
-import { JSONSchema7 } from 'json-schema';
 
 import { TranslatableString } from './enums';
 
@@ -715,6 +715,9 @@ export type ArrayFieldItemButtonsTemplateProps<
   onRemoveItem: (event?: any) => void;
   /** A boolean value stating if the array item is read-only */
   readonly?: boolean;
+  /** CUSTOM */
+  hasCopyFromParent?: boolean;
+  onCopyFromParentIndexClick?: (index: number) => (event?: any) => void;
 };
 
 /** The properties used to render the ArrayFieldItemTemplate */
@@ -1166,6 +1169,7 @@ export type CustomValidator<T = any, S extends StrictRJSFSchema = RJSFSchema, F 
 export type ErrorTransformer<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any> = (
   errors: RJSFValidationError[],
   uiSchema?: UiSchema<T, S, F>,
+  formData?: T | undefined,
 ) => RJSFValidationError[];
 
 /** The type that describes the data that is returned from the `ValidatorType.validateFormData()` function */
