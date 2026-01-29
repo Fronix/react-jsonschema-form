@@ -144,7 +144,7 @@ const regexp = new RegExp(
   Object.keys(validatorsBundleReplacements)
     .map((key) => key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
     .join('|'),
-  'g'
+  'g',
 );
 
 function wrapAjvBundle(code: string) {
@@ -152,7 +152,7 @@ function wrapAjvBundle(code: string) {
     .map(([name]) => name)
     .join(', ')}){\nvar exports = {};\n${code.replace(
     regexp,
-    (req) => validatorsBundleReplacements[req][0]
+    (req) => validatorsBundleReplacements[req][0],
   )};\nreturn exports;\n}`;
 }
 
@@ -210,7 +210,7 @@ React.useEffect(() => {
   evaluateValidator(
     schemaId, // some schema id to avoid evaluating it multiple times
     code, // result of compileSchemaValidatorsCode returned from the server
-    nonce // nonce script tag attribute to allow this ib content security policy for the page
+    nonce, // nonce script tag attribute to allow this ib content security policy for the page
   ).then(setPrecompiledValidator);
 }, [entityType.id]);
 
@@ -357,7 +357,7 @@ const schema: RJSFSchema = {
 
 render(
   <Form schema={schema} validator={validator} transformErrors={transformErrors} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 

@@ -95,7 +95,7 @@ const formRef = createRef<Form>();
 
 render(
   <Form schema={schema} validator={validator} onSubmit={onSubmit} ref={formRef} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 
 formRef.current.submit();

@@ -16,12 +16,10 @@ Here is an example of a string field:
 
 ```jsx
 const schema = {
-  type: "string"
+  type: 'string',
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ## Titles and descriptions
@@ -30,14 +28,12 @@ Fields can have titles and descriptions specified by the `title` keyword in the 
 
 ```jsx
 const schema = {
-  title: "My form",
-  description: "My description",
-  type: "string"
+  title: 'My form',
+  description: 'My description',
+  type: 'string',
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ## Enumerated values
@@ -46,13 +42,11 @@ All base schema types support the `enum` attribute, which restricts the user to 
 
 ```jsx
 const schema = {
-  type: "string",
-  enum: ["one", "two", "three"]
+  type: 'string',
+  enum: ['one', 'two', 'three'],
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ### Custom labels for `enum` fields
@@ -61,14 +55,12 @@ This library supports a custom [`enumNames`](https://github.com/rjsf-team/react-
 
 ```jsx
 const schema = {
-  type: "number",
+  type: 'number',
   enum: [1, 2, 3],
-  enumNames: ["one", "two", "three"]
+  enumNames: ['one', 'two', 'three'],
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 #### Alternative JSON-Schema compliant approach
@@ -77,35 +69,27 @@ JSON Schema has an alternative approach to enumerations using `anyOf`; react-jso
 
 ```jsx
 const schema = {
-  "type": "number",
-  "anyOf": [
+  type: 'number',
+  anyOf: [
     {
-      "type": "number",
-      "title": "one",
-      "enum": [
-        1
-      ]
+      type: 'number',
+      title: 'one',
+      enum: [1],
     },
     {
-      "type": "number",
-      "title": "two",
-      "enum": [
-        2
-      ]
+      type: 'number',
+      title: 'two',
+      enum: [2],
     },
     {
-      "type": "number",
-      "title": "three",
-      "enum": [
-        3
-      ]
-    }
-  ]
+      type: 'number',
+      title: 'three',
+      enum: [3],
+    },
+  ],
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ### Disabled attribute for `enum` fields
@@ -114,19 +98,16 @@ To disable an option, use the `ui:enumDisabled` property in the uiSchema.
 
 ```jsx
 const schema = {
-  type: "boolean",
-  enum: [true, false]
+  type: 'boolean',
+  enum: [true, false],
 };
 
-const uiSchema={
-  "ui:enumDisabled": [true],
+const uiSchema = {
+  'ui:enumDisabled': [true],
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
-
 
 ## Nullable types
 
@@ -134,10 +115,8 @@ JSON Schema supports specifying multiple types in an array; however, react-jsons
 
 ```jsx
 const schema = {
-  type: ["string", "null"]
+  type: ['string', 'null'],
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```

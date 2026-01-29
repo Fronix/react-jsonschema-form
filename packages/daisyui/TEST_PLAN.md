@@ -56,20 +56,17 @@ npm run test:watch
 ## Test Coverage Areas
 
 1. **Functional Testing**
-
    - Proper rendering of form components
    - Widget interaction (e.g., toggling switches, setting ratings)
    - Form validation
    - Data binding
 
 2. **UI Testing**
-
    - Proper application of DaisyUI classes
    - Responsive layout
    - Theme application
 
 3. **Accessibility Testing**
-
    - Keyboard navigation
    - ARIA attributes
    - Focus management

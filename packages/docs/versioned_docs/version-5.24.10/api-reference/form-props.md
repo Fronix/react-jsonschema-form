@@ -48,7 +48,7 @@ render(
       <button type='button'>Cancel</button>
     </div>
   </Form>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -184,7 +184,7 @@ render(
       emptyObjectFields: 'populateRequiredDefaults',
     }}
   />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -247,7 +247,7 @@ render(
       allOf: 'populateDefaults',
     }}
   />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -294,7 +294,7 @@ const customMergeAllOf = (schema: RJSFSchema): RJSFSchema => {
 
 render(
   <Form schema={schema} validator={validator} experimental_customMergeAllOf={customMergeAllOf} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 

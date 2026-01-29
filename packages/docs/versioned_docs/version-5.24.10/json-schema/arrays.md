@@ -276,7 +276,7 @@ const widgets = {
 
 render(
   <Form schema={schema} uiSchema={uiSchema} widgets={widgets} validator={validator} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
