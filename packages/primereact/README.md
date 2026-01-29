@@ -102,21 +102,12 @@ GitHub
 repository: [https://github.com/rjsf-team/react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
 
 [build-shield]: https://github.com/rjsf-team/react-jsonschema-form/workflows/CI/badge.svg
-
 [build-url]: https://github.com/rjsf-team/react-jsonschema-form/actions
-
 [contributors-shield]: https://img.shields.io/github/contributors/rjsf-team/react-jsonschema-form.svg
-
 [contributors-url]: https://github.com/rjsf-team/react-jsonschema-form/graphs/contributors
-
 [license-shield]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square
-
 [license-url]: https://choosealicense.com/licenses/apache-2.0/
-
 [npm-shield]: https://img.shields.io/npm/v/@rjsf/primereact/latest.svg?style=flat-square
-
 [npm-url]: https://www.npmjs.com/package/@rjsf/primereact
-
 [npm-dl-shield]: https://img.shields.io/npm/dm/@rjsf/primereact.svg?style=flat-square
-
 [npm-dl-url]: https://www.npmjs.com/package/@rjsf/primereact

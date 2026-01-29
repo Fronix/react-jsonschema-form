@@ -35,7 +35,7 @@ jobs:
           if [[ "$TAG_NAME" == *alpha* || "$TAG_NAME" == *beta* || "$TAG_NAME" == *pre* ]]; then
             NPM_TAG_VALUE="next"
           fi
-          
+
           echo "NPM_TAG=${NPM_TAG_VALUE}" >> $GITHUB_ENV
           echo "Determined NPM_TAG: ${NPM_TAG_VALUE}"
       - run: npx nx release publish --tag=$NPM_TAG --provenance

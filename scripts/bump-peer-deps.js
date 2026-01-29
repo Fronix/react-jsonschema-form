@@ -49,5 +49,5 @@ dirs.forEach((dir) => {
   fs.writeFileSync(fileName, JSON.stringify(packageObject, null, 2) + os.EOL, function handleError(err) {
     if (err) return console.log(err);
     console.log(`Writing peerDep changes to ${fileName}`);
-  })
+  });
 });

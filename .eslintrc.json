@@ -20,20 +20,10 @@
       }
     ],
     "react-hooks/exhaustive-deps": "error",
-    "curly": [
-      2
-    ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
-    "comma-dangle": [
-      0
-    ],
+    "curly": [2],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "comma-dangle": [0],
     "@typescript-eslint/no-require-imports": "off",
     "@typescript-eslint/no-unused-vars": [
       2,
@@ -45,16 +35,9 @@
     ],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "no-console": [
-      0
-    ],
-    "object-curly-spacing": [
-      2,
-      "always"
-    ],
-    "keyword-spacing": [
-      "error"
-    ],
+    "no-console": [0],
+    "object-curly-spacing": [2, "always"],
+    "keyword-spacing": ["error"],
     "no-prototype-builtins": "error",
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-var-requires": "warn"

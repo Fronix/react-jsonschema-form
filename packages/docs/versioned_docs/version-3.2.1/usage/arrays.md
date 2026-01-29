@@ -8,15 +8,13 @@ Arrays of a single field type can be specified as follows:
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "string"
-  }
+    type: 'string',
+  },
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ## Arrays of objects
@@ -25,20 +23,18 @@ Arrays of objects can be specified as follows:
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "object",
+    type: 'object',
     properties: {
-        name: {
-            type: "string"
-        }
-    }
-  }
+      name: {
+        type: 'string',
+      },
+    },
+  },
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ## uiSchema for array items
@@ -47,21 +43,19 @@ To specify a uiSchema that applies to array items, specify the uiSchema value wi
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "string"
-  }
+    type: 'string',
+  },
 };
 
 const uiSchema = {
   items: {
-    "ui:widget": "textarea"
-  }
+    'ui:widget': 'textarea',
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 ## The `additionalItems` keyword
@@ -70,18 +64,16 @@ The `additionalItems` keyword allows the user to add additional items of a given
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "string"
+    type: 'string',
   },
   additionalItems: {
-    type: "boolean"
-  }
+    type: 'boolean',
+  },
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 ## Array item options
@@ -92,21 +84,19 @@ Array items are orderable by default, and react-jsonschema-form renders move up/
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "string"
-  }
+    type: 'string',
+  },
 };
 
 const uiSchema = {
-  "ui:options":  {
-    orderable: false
-  }
+  'ui:options': {
+    orderable: false,
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 ### `addable` option
@@ -115,21 +105,19 @@ If either `items` or `additionalItems` contains a schema object, an add button f
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "string"
-  }
+    type: 'string',
+  },
 };
 
 const uiSchema = {
-  "ui:options":  {
-    addable: false
-  }
+  'ui:options': {
+    addable: false,
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 ### `removable` option
@@ -138,23 +126,20 @@ A remove button is shown by default for an item if `items` contains a schema obj
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   items: {
-    type: "string"
-  }
+    type: 'string',
+  },
 };
 
 const uiSchema = {
-  "ui:options":  {
-    removable: false
-  }
+  'ui:options': {
+    removable: false,
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
-
 
 ## Multiple-choice list
 
@@ -164,42 +149,37 @@ Example:
 
 ```jsx
 const schema = {
-  type: "array",
-  title: "A multiple-choice list",
+  type: 'array',
+  title: 'A multiple-choice list',
   items: {
-    type: "string",
-    enum: ["foo", "bar", "fuzz", "qux"],
+    type: 'string',
+    enum: ['foo', 'bar', 'fuzz', 'qux'],
   },
-  uniqueItems: true
+  uniqueItems: true,
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 By default, this will render a multiple select box. If you prefer a list of checkboxes, just set the uiSchema `ui:widget` directive to `checkboxes` for that field:
 
 ```js
 const schema = {
-  type: "array",
-  title: "A multiple-choice list",
+  type: 'array',
+  title: 'A multiple-choice list',
   items: {
-    type: "string",
-    enum: ["foo", "bar", "fuzz", "qux"],
+    type: 'string',
+    enum: ['foo', 'bar', 'fuzz', 'qux'],
   },
-  uniqueItems: true
+  uniqueItems: true,
 };
 
 const uiSchema = {
-  "ui:widget": "checkboxes"
+  'ui:widget': 'checkboxes',
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
-
 
 ## Specifying the minimum or maximum number of items
 
@@ -209,23 +189,20 @@ Example:
 
 ```jsx
 const schema = {
-  type: "array",
+  type: 'array',
   minItems: 2,
-  title: "A multiple-choice list",
+  title: 'A multiple-choice list',
   items: {
-    type: "string",
-    enum: ["foo", "bar", "fuzz", "qux"],
+    type: 'string',
+    enum: ['foo', 'bar', 'fuzz', 'qux'],
   },
-  uniqueItems: true
+  uniqueItems: true,
 };
 
-render((
-  <Form schema={schema} />
-), document.getElementById("app"));
+render(<Form schema={schema} />, document.getElementById('app'));
 ```
 
 You can also specify the maximum number of items in an array using the `maxItems` property.
-
 
 ## Inline checkboxes
 
@@ -233,24 +210,22 @@ By default, checkboxes are stacked. If you prefer them inline, set the `inline` 
 
 ```js
 const schema = {
-  type: "array",
+  type: 'array',
   minItems: 2,
-  title: "A multiple-choice list",
+  title: 'A multiple-choice list',
   items: {
-    type: "string",
-    enum: ["foo", "bar", "fuzz", "qux"],
+    type: 'string',
+    enum: ['foo', 'bar', 'fuzz', 'qux'],
   },
-  uniqueItems: true
+  uniqueItems: true,
 };
 
 const uiSchema = {
-  "ui:widget": "checkboxes",
-  "ui:options": {
-    inline: true
-  }
+  'ui:widget': 'checkboxes',
+  'ui:options': {
+    inline: true,
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```

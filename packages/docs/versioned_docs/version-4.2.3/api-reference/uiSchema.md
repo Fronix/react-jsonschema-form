@@ -1,4 +1,5 @@
 # uiSchema
+
 JSON Schema is limited for describing how a given data type should be rendered as a form input component. That's why this library introduces the concept of uiSchema.
 
 A UI schema is basically an object literal providing information on **how** the form should be rendered, while the JSON schema tells **what**.
@@ -16,11 +17,11 @@ In other words, the following uiSchemas are equivalent:
   "ui:submitButtonOptions": {
     "props": {
       "disabled": false,
-      "className": "btn btn-info",
+      "className": "btn btn-info"
     },
-      "norender": false,
-      "submitText": "Submit"
-    },
+    "norender": false,
+    "submitText": "Submit"
+  }
 }
 ```
 
@@ -32,11 +33,11 @@ In other words, the following uiSchemas are equivalent:
     "submitButtonOptions": {
       "props": {
         "disabled": false,
-        "className": "btn btn-info",
+        "className": "btn btn-info"
       },
       "norender": false,
       "submitText": "Submit"
-    },
+    }
   }
 }
 ```
@@ -48,18 +49,18 @@ The uiSchema object accepts a `classNames` property for each field of the schema
 ```jsx
 const uiSchema = {
   title: {
-    classNames: "task-title foo-bar"
-  }
+    classNames: 'task-title foo-bar',
+  },
 };
 ```
 
 Will result in:
 
 ```html
-<div class="field field-string task-title foo-bar" >
+<div class="field field-string task-title foo-bar">
   <label>
     <span>Title*</span>
-    <input value="My task" required="" type="text">
+    <input value="My task" required="" type="text" />
   </label>
 </div>
 ```
@@ -69,11 +70,11 @@ Will result in:
 If you want to automatically focus on a text input or textarea input, set the `ui:autofocus` uiSchema directive to `true`.
 
 ```js
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:widget": "textarea",
-  "ui:autofocus": true
-}
+  'ui:widget': 'textarea',
+  'ui:autofocus': true,
+};
 ```
 
 ## description
@@ -81,10 +82,10 @@ const uiSchema = {
 Sometimes it's convenient to change the description of a field. This is the purpose of the `ui:description` uiSchema directive:
 
 ```js
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:widget": "password",
-  "ui:description": "The best password"
+  'ui:widget': 'password',
+  'ui:description': 'The best password',
 };
 ```
 
@@ -100,13 +101,13 @@ To disable an option, use the `enumDisabled` property in uiSchema.
 
 ```js
 const schema = {
-  type: "string",
-  enum: ["one", "two", "three"],
+  type: 'string',
+  enum: ['one', 'two', 'three'],
 };
 
-const uiSchema={
-  "ui:enumDisabled": ['two'],
-}
+const uiSchema = {
+  'ui:enumDisabled': ['two'],
+};
 ```
 
 ## help
@@ -114,10 +115,10 @@ const uiSchema={
 Sometimes it's convenient to add text next to a field to guide the end user filling it. This is the purpose of the `ui:help` uiSchema directive:
 
 ```js
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:widget": "password",
-  "ui:help": "Hint: Make it strong!"
+  'ui:widget': 'password',
+  'ui:help': 'Hint: Make it strong!',
 };
 ```
 
@@ -138,11 +139,11 @@ This is useful when you have a custom field or widget that utilizes either the `
 To change the input type (for example, `tel` or `email`) you can specify the `inputType` in the `ui:options` uiSchema directive.
 
 ```jsx
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:options": {
-    inputType: 'tel'
-  }
+  'ui:options': {
+    inputType: 'tel',
+  },
 };
 ```
 
@@ -151,16 +152,14 @@ const uiSchema = {
 Field labels are rendered by default. Labels may be omitted by setting the `label` option to `false` in the `ui:options` uiSchema directive.
 
 ```jsx
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:options": {
-    label: false
-  }
+  'ui:options': {
+    label: false,
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 ## order
@@ -172,27 +171,23 @@ This property allows you to reorder the properties that are shown for a particul
 You can add placeholder text to an input by using the `ui:placeholder` uiSchema directive:
 
 ```jsx
-const schema = {type: "string", format: "uri"};
+const schema = { type: 'string', format: 'uri' };
 const uiSchema = {
-  "ui:placeholder": "http://"
+  'ui:placeholder': 'http://',
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 Fields using `enum` can also use `ui:placeholder`. The value will be used as the text for the empty option in the select widget.
 
 ```jsx
-const schema = {type: "string", enum: ["First", "Second"]};
+const schema = { type: 'string', enum: ['First', 'Second'] };
 const uiSchema = {
-  "ui:placeholder": "Choose an option"
+  'ui:placeholder': 'Choose an option',
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 ## readonly
@@ -207,7 +202,7 @@ By default, this library will generate ids unique to the form for all rendered w
 
 ```js
 const uiSchema = {
-  "ui:rootFieldId": "myform"
+  'ui:rootFieldId': 'myform',
 };
 ```
 
@@ -218,17 +213,15 @@ This will make all widgets have an id prefixed with `myform`.
 You can set the initial height of a textarea widget by specifying `rows` option.
 
 ```js
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:widget": "textarea",
-  "ui:options": {
-    rows: 15
-  }
+  'ui:widget': 'textarea',
+  'ui:options': {
+    rows: 15,
+  },
 };
 
-render((
-  <Form schema={schema} uiSchema={uiSchema} />
-), document.getElementById("app"));
+render(<Form schema={schema} uiSchema={uiSchema} />, document.getElementById('app'));
 ```
 
 ## title
@@ -236,10 +229,10 @@ render((
 Sometimes it's convenient to change a field's title. This is the purpose of the `ui:title` uiSchema directive:
 
 ```js
-const schema = {type: "string"};
+const schema = { type: 'string' };
 const uiSchema = {
-  "ui:widget": "password",
-  "ui:title": "Your password"
+  'ui:widget': 'password',
+  'ui:title': 'Your password',
 };
 ```
 
@@ -261,8 +254,7 @@ You can use this option to change the text of the submit button. Set to "Submit"
 
 You can pass any other prop to the submit button if you want, via this section.
 
-
-####  `disabled` prop
+#### `disabled` prop
 
 You can use this option to disable the submit button.
 
@@ -272,16 +264,18 @@ You can use this option to specify a class name for the submit button.
 
 ```js
 const uiSchema = {
- "ui:submitButtonOptions": {
-   "props": {
-      "disabled": false,
-      "className": "btn btn-info",
-   },
-    "norender": false,
-    "submitText": "Submit"
-  }
+  'ui:submitButtonOptions': {
+    props: {
+      disabled: false,
+      className: 'btn btn-info',
+    },
+    norender: false,
+    submitText: 'Submit',
+  },
 };
 ```
+
 ## Theme Options
+
 [Semantic UI](themes/semantic-ui/uiSchema.md)
 [Chakra UI](themes/chakra-ui/uiSchema.md)

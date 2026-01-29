@@ -12,15 +12,13 @@ Be warned that this is an expensive strategy, with possibly strong impact on per
 
 ```jsx
 const schema = {
-  type: ["string"],
-  const: "test"
+  type: ['string'],
+  const: 'test',
 };
 
-const formData = "a";
+const formData = 'a';
 
-render((
-  <Form schema={schema} formData={formData} liveValidate />
-), document.getElementById("app"));
+render(<Form schema={schema} formData={formData} liveValidate />, document.getElementById('app'));
 ```
 
 ## HTML5 Validation
@@ -29,18 +27,16 @@ By default, the form uses HTML5 validation. This may cause unintuitive results b
 
 ```jsx
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
     name: {
-      type: "string",
-      required: true
-    }
-  }
+      type: 'string',
+      required: true,
+    },
+  },
 };
 
-render((
-  <Form schema={schema} noHtml5Validate />
-), document.getElementById("app"));
+render(<Form schema={schema} noHtml5Validate />, document.getElementById('app'));
 ```
 
 ## Custom validation rules
@@ -58,20 +54,18 @@ function validate(formData, errors) {
 }
 
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
-    pass1: {type: "string", minLength: 3},
-    pass2: {type: "string", minLength: 3},
-  }
+    pass1: { type: 'string', minLength: 3 },
+    pass2: { type: 'string', minLength: 3 },
+  },
 };
 
-render((
-  <Form schema={schema}
-        validate={validate} />
-), document.getElementById("app"));
+render(<Form schema={schema} validate={validate} />, document.getElementById('app'));
 ```
 
 > Notes:
+>
 > - The `validate()` function must **always** return the `errors` object
 >   received as second argument.
 > - The `validate()` function is called **after** the JSON schema validation.
@@ -82,28 +76,26 @@ Validation error messages are provided by the JSON Schema validation by default.
 
 ```jsx
 function transformErrors(errors) {
-  return errors.map(error => {
-    if (error.name === "pattern") {
-      error.message = "Only digits are allowed"
+  return errors.map((error) => {
+    if (error.name === 'pattern') {
+      error.message = 'Only digits are allowed';
     }
     return error;
   });
 }
 
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
-    onlyNumbersString: {type: "string", pattern: "^\\d*$"},
-  }
+    onlyNumbersString: { type: 'string', pattern: '^\\d*$' },
+  },
 };
 
-render((
-  <Form schema={schema}
-        transformErrors={transformErrors} />
-), document.getElementById("app"));
+render(<Form schema={schema} transformErrors={transformErrors} />, document.getElementById('app'));
 ```
 
 > Notes:
+>
 > - The `transformErrors()` function must return the list of errors. Modifying the list in place without returning it will result in an error.
 
 Each element in the `errors` list passed to `transformErrors` has the following properties:
@@ -117,7 +109,7 @@ Each element in the `errors` list passed to `transformErrors` has the following 
 
 ## Error List Display
 
-To take control over how the form errors are displayed, you can define an *error list template* for your form. This list is the form global error list that appears at the top of your forms.
+To take control over how the form errors are displayed, you can define an _error list template_ for your form. This list is the form global error list that appears at the top of your forms.
 
 An error list template is basically a React stateless component being passed errors as props so you can render them as you like:
 
@@ -128,28 +120,23 @@ function ErrorListTemplate(props) {
     <div>
       <h2>Custom error list</h2>
       <ul>
-        {errors.map(error => (
-            <li key={error.stack}>
-              {error.stack}
-            </li>
-          ))}
+        {errors.map((error) => (
+          <li key={error.stack}>{error.stack}</li>
+        ))}
       </ul>
     </div>
   );
 }
 
 const schema = {
-  type: "string",
-  const: "test"
+  type: 'string',
+  const: 'test',
 };
 
-render((
-  <Form schema={schema}
-        showErrorList={true}
-        formData={""}
-        liveValidate
-        ErrorList={ErrorListTemplate} />
-), document.getElementById("app"));
+render(
+  <Form schema={schema} showErrorList={true} formData={''} liveValidate ErrorList={ErrorListTemplate} />,
+  document.getElementById('app'),
+);
 ```
 
 > Note: Your custom `ErrorList` template will only render when `showErrorList` is `true`.
@@ -161,7 +148,6 @@ The following props are passed to `ErrorList`
 - `schema`: The schema that was passed to `Form`.
 - `uiSchema`: The uiSchema that was passed to `Form`.
 - `formContext`: The `formContext` object that you passed to Form.
-
 
 ## The case of empty strings
 
@@ -189,19 +175,18 @@ Note that react-jsonschema-form only supports the latest version of JSON Schema,
 The `additionalMetaSchemas` prop allows you to validate the form data against one (or more than one) JSON Schema meta schema, for example, JSON Schema draft-04. You can import a meta schema as follows:
 
 ```jsx
-const metaSchemaDraft04 = require("ajv/lib/refs/json-schema-draft-04.json");
+const metaSchemaDraft04 = require('ajv/lib/refs/json-schema-draft-04.json');
 ```
 
 In this example `schema` passed as props to `Form` component can be validated against draft-07 (default) and by draft-04 (added), depending on the value of `$schema` attribute.
 
 ```jsx
 const schema = {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  type: "string"
+  $schema: 'http://json-schema.org/draft-04/schema#',
+  type: 'string',
 };
 
-return (<Form schema={schema} 
-  additionalMetaSchemas={[metaSchemaDraft04]} />);
+return <Form schema={schema} additionalMetaSchemas={[metaSchemaDraft04]} />;
 ```
 
 ## customFormats
@@ -211,17 +196,14 @@ return (<Form schema={schema}
 ```jsx
 const schema = {
   type: 'string',
-  format: 'phone-us'
+  format: 'phone-us',
 };
 
 const customFormats = {
-  'phone-us': /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/
+  'phone-us': /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/,
 };
 
-render((
-  <Form schema={schema} 
-        customFormats={customFormats}/>
-), document.getElementById("app"));
+render(<Form schema={schema} customFormats={customFormats} />, document.getElementById('app'));
 ```
 
 Format values can be anything AJV's [`addFormat` method](https://github.com/ajv-validator/ajv/tree/6a671057ea6aae690b5967ee26a0ddf8452c6297#addformatstring-name-stringregexpfunctionobject-format---ajv) accepts.
@@ -234,37 +216,34 @@ For example, a request could be made to some backend when the user submits the f
 
 ```jsx
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
     foo: {
-      type: "string",
+      type: 'string',
     },
     candy: {
-      type: "object",
+      type: 'object',
       properties: {
         bar: {
-          type: "string",
-        }
-      }
-    }
-  }
+          type: 'string',
+        },
+      },
+    },
+  },
 };
 
 const extraErrors = {
   foo: {
-    __errors: ["some error that got added as a prop"],
+    __errors: ['some error that got added as a prop'],
   },
   candy: {
     bar: {
-    __errors: ["some error that got added as a prop"],
-    }
-  }
+      __errors: ['some error that got added as a prop'],
+    },
+  },
 };
 
-render((
-  <Form schema={schema}
-        extraErrors={extraErrors} />
-), document.getElementById("app"));
+render(<Form schema={schema} extraErrors={extraErrors} />, document.getElementById('app'));
 ```
 
 An important note is that these errors are "display only" and will not block the user from submitting the form again.

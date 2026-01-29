@@ -1,7 +1,6 @@
 import isString from 'lodash/isString';
-
-import { FieldPathId } from './types';
 import { ID_KEY } from './constants';
+import type { FieldPathId } from './types';
 
 /** Generates a consistent `id` pattern for a given `id` and a `suffix`
  *
@@ -86,7 +85,10 @@ export function optionId(id: string, optionIndex: number) {
  * @param btn - The button type for which to generate the id
  * @returns - The consistent id for the button from the given `id` and `btn` type
  */
-export function buttonId(id: FieldPathId | string, btn: 'add' | 'copy' | 'moveDown' | 'moveUp' | 'remove') {
+export function buttonId(
+  id: FieldPathId | string,
+  btn: 'add' | 'copy' | 'moveDown' | 'moveUp' | 'remove' | 'copy-from-parent',
+) {
   return idGenerator(id, btn);
 }
 

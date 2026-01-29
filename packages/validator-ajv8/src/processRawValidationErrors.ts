@@ -1,5 +1,3 @@
-import { ErrorObject } from 'ajv';
-import get from 'lodash/get';
 import {
   ANY_OF_KEY,
   createErrorHandler,
@@ -19,6 +17,8 @@ import {
   validationDataMerge,
   ValidatorType,
 } from '@rjsf/utils';
+import { ErrorObject } from 'ajv';
+import get from 'lodash/get';
 
 export type RawValidationErrorsType<Result = any> = {
   errors?: Result[];
@@ -164,7 +164,7 @@ export default function processRawValidationErrors<
     errors = [...errors, { stack: invalidSchemaError!.message }];
   }
   if (typeof transformErrors === 'function') {
-    errors = transformErrors(errors, uiSchema);
+    errors = transformErrors(errors, uiSchema, formData);
   }
 
   let errorSchema = toErrorSchema<T>(errors);

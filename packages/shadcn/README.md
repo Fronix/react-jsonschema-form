@@ -26,10 +26,10 @@
 
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
-    - [Built With](#built-with)
+  - [Built With](#built-with)
 - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -79,8 +79,8 @@ import Form from '@rjsf/shadcn';
 or
 
 ```js
-import {withTheme} from '@rjsf/core';
-import {Theme as shadcnTheme} from '@rjsf/shadcn';
+import { withTheme } from '@rjsf/core';
+import { Theme as shadcnTheme } from '@rjsf/shadcn';
 
 const Form = withTheme(shadcnTheme);
 ```
@@ -96,15 +96,20 @@ Follow shadCN installation guide [here](https://ui.shadcn.com/docs/installation)
 The color of the RJSF will automatically apply with your shadCN config.
 
 #### Tailwind v3
+
 Add the following line to your tailwind.config.ts
+
 ```typescript
   content: [
     "./src/**/*.{html,js}",
     "node_modules/@rjsf/shadcn/src/**/*.{js,ts,jsx,tsx,mdx}" // Add this line
   ],
 ```
+
 #### Tailwind v4
+
 Add the following line to your equivalent global.css
+
 ```css
 @source "../node_modules/@rjsf/shadcn";
 ```
@@ -136,7 +141,7 @@ Supported colors are:
 #### Coloring
 
 - Generate a theme from [official shadCN site](https://ui.shadcn.com/themes)
-  or  [tweakcn](https://tweakcn.com/editor/theme)
+  or [tweakcn](https://tweakcn.com/editor/theme)
 - Navigate to shadcn/css, create a new file called [your-theme].css
 - Replace the base layer code with your new color
 - Follow the next section to build your CSS file
@@ -171,23 +176,23 @@ npm install @radix-ui/react-direction --save
 
 1. Wrap your layout with DirectionProvider:
 
-    ```tsx
-    import {DirectionProvider as RadixDirectionProvider} from '@radix-ui/react-direction;
-    
-    function Layout({children, direction}) {
-        return (
-            <RadixDirectionProvider dir={direction}>
-                {children}
-            </RadixDirectionProvider>
-        );
-    }
-    ```
+   ```tsx
+   import {DirectionProvider as RadixDirectionProvider} from '@radix-ui/react-direction;
+
+   function Layout({children, direction}) {
+       return (
+           <RadixDirectionProvider dir={direction}>
+               {children}
+           </RadixDirectionProvider>
+       );
+   }
+   ```
 
 2. Set HTML direction attribute:
 
-    ```html
-    <html dir="rtl" lang="en">
-    ```
+   ```html
+   <html dir="rtl" lang="en"></html>
+   ```
 
 3. You can refer to `direction-context.tsx`, `direction-provider.tsx` and `rtl-toggle.tsx` from demo repository for
    implementation.
@@ -219,23 +224,13 @@ repository: [https://github.com/rjsf-team/react-jsonschema-form](https://github.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [build-shield]: https://github.com/rjsf-team/react-jsonschema-form/workflows/CI/badge.svg
-
 [build-url]: https://github.com/rjsf-team/react-jsonschema-form/actions
-
 [contributors-shield]: https://img.shields.io/github/contributors/rjsf-team/react-jsonschema-form.svg
-
 [contributors-url]: https://github.com/rjsf-team/react-jsonschema-form/graphs/contributors
-
 [license-shield]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square
-
 [license-url]: https://choosealicense.com/licenses/apache-2.0/
-
 [npm-shield]: https://img.shields.io/npm/v/@rjsf/shadcn/latest.svg?style=flat-square
-
 [npm-url]: https://www.npmjs.com/package/@rjsf/shadcn
-
 [npm-dl-shield]: https://img.shields.io/npm/dm/@rjsf/shadcn.svg?style=flat-square
-
 [npm-dl-url]: https://www.npmjs.com/package/@rjsf/shadcn
-
 [product-screenshot]: https://raw.githubusercontent.com/rjsf-team/react-jsonschema-form/59a8206e148474bea854bbb004f624143fbcbac8/packages/shadcn/screenshot.png

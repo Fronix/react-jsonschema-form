@@ -36,7 +36,7 @@ const widgets: RegistryWidgetsType = {
 
 render(
   <Form schema={schema} uiSchema={uiSchema} validator={validator} widgets={widgets} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -138,7 +138,7 @@ const widgets: RegistryWidgetsType = {
 
 render(
   <Form schema={schema} uiSchema={uiSchema} validator={validator} widgets={widgets} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -238,7 +238,7 @@ const uiSchema: UiSchema = {
 
 render(
   <Form schema={schema} uiSchema={uiSchema} validator={validator} widgets={widgets} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -347,7 +347,7 @@ class GeoPosition extends React.Component<FieldProps> {
         {
           [name]: parseFloat(event.target.value),
         },
-        () => this.props.onChange(this.state)
+        () => this.props.onChange(this.state),
       );
     };
   }
@@ -374,7 +374,7 @@ const fields: RegistryFieldsType = { geo: GeoPosition };
 // as props
 render(
   <Form schema={schema} uiSchema={uiSchema} validator={validator} fields={fields} />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 ```
 
@@ -540,7 +540,7 @@ function MyObjectField(props: FieldProps) {
       }
       onChange(data, error, id);
     },
-    [onChange]
+    [onChange],
   );
   return <ObjectField {...props} onChange={onChangeHandler} />;
 }
